@@ -11,7 +11,7 @@
     "used": false
   },
   "description": "",
-  "favoriteSong": ""
+  "favoriteSong": "",
   "attributes": {
     "body": 0,
     "tech": 0,
@@ -78,7 +78,7 @@
   "experience": 0,
   "relationships": [{
     "partner": "",
-    "npc": false
+    "npc": false,
     "description": ""
   }],
   "items": [{
