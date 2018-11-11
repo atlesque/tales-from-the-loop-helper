@@ -2,7 +2,11 @@
   <div class="spec-table attributes">
     <div class="spec-table__header">{{ title }}</div>
     <div class="spec-table__body">
-      <div v-for="(value, key) in specs" :key="key" class="spec-table__element">
+      <div v-if="counter" class="spec-table__element spec-table__element--counter">
+        <span v-for="count in specs" :key="count" class="spec-table__checkbox spec-table__checkbox--checked">&nbsp;</span>
+        <span v-for="count in (limit - specs)" :key="count" class="spec-table__checkbox">&nbsp;</span>
+      </div>
+      <div v-else v-for="(value, key) in specs" :key="key" class="spec-table__element">
         <span class="spec-table__element-name">{{ key }}</span>
         <div class="spec-table__element-value-wrapper" v-bind:class="{'spec-table__element-value-wrapper--checked' : value === true, 'spec-table__element-value-wrapper--empty' : specs[key].points != null && specs[key].points === 0}">
           <div class="spec-table__element-value">
@@ -19,7 +23,7 @@
 <script>
 export default {
   name: 'SpecTable',
-  props: ['title', 'specs'],
+  props: ['title', 'specs', 'counter', 'limit'],
   methods: {
     valueIsNumber (value) {
       return Number.isInteger(value)
@@ -34,7 +38,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .spec-table {
   border: 1px solid black;
   margin-bottom: 1em;
@@ -58,15 +62,23 @@ export default {
 .spec-table__element:nth-child(even) {
   background-color: #f0bc8d;
 }
+.spec-table__element--counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .spec-table__element-name {
   text-transform: capitalize;
   font-weight: bold;
 }
 .spec-table__element-value-wrapper {
-  display: inline-block;
   float: right;
-  border: 1px solid black;
   padding: 0 1em;
+}
+.spec-table__element-value-wrapper,
+.spec-table__checkbox {
+  display: inline-block;
+  border: 1px solid black;
   background-color: white;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
@@ -75,5 +87,15 @@ export default {
 }
 .spec-table__element-value-wrapper--empty {
   background-color: grey;
+}
+.spec-table__checkbox {
+  width: 1em;
+  height: 1em;
+}
+.spec-table__checkbox:not(:last-child) {
+  margin-right: 0.4em;
+}
+.spec-table__checkbox--checked {
+  background-color: #8df0b8;
 }
 </style>

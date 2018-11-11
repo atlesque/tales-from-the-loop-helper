@@ -81,7 +81,7 @@ export default new Vuex.Store({
         'type': 'mind'
       }
     },
-    'experience': 0,
+    'experience': 2,
     'relationships': [{
       'partner': '',
       'npc': false,
