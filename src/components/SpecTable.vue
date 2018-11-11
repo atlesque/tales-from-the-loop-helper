@@ -3,8 +3,8 @@
     <div class="spec-table__header">{{ title }}</div>
     <div class="spec-table__body">
       <div v-if="counter" class="spec-table__element spec-table__element--counter">
-        <span v-for="count in specs" :key="count" class="spec-table__checkbox spec-table__checkbox--checked">&nbsp;</span>
-        <span v-for="count in (limit - specs)" :key="count" class="spec-table__checkbox">&nbsp;</span>
+        <span v-for="count in specs" :key="'checked' + count" class="spec-table__checkbox spec-table__checkbox--checked">&nbsp;</span>
+        <span v-for="count in (limit - specs)" :key="'unchecked' + count" class="spec-table__checkbox">&nbsp;</span>
       </div>
       <div v-else v-for="(value, key) in specs" :key="key" class="spec-table__element">
         <span class="spec-table__element-name">{{ key }}</span>
