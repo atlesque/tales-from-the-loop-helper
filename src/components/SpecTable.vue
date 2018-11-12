@@ -83,7 +83,8 @@ export default {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 }
 .spec-table__element-value-wrapper--checked {
-  background-color: #f08d8d;
+  /* background-color: #f08d8d; */
+  background-color: black;
 }
 .spec-table__element-value-wrapper--empty {
   background-color: grey;
@@ -96,6 +97,6 @@ export default {
   margin-right: 0.4em;
 }
 .spec-table__checkbox--checked {
-  background-color: #8df0b8;
+  background-color: black;
 }
 </style>
